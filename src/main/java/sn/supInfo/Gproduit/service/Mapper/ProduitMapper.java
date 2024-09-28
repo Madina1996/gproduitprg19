@@ -1,5 +1,6 @@
 package sn.supInfo.Gproduit.service.Mapper;
 
+import org.springframework.stereotype.Service;
 import sn.supInfo.Gproduit.model.Produit;
 import sn.supInfo.Gproduit.model.Categorie;
 import sn.supInfo.Gproduit.service.DTO.ProduitDTO;
@@ -7,7 +8,7 @@ import sn.supInfo.Gproduit.service.DTO.ProduitDTO;
 import java.util.List;
 import java.util.Objects;
 import java.util.stream.Collectors;
-
+@Service
 public class ProduitMapper {
 
     public Produit toEntity(ProduitDTO dto){
@@ -19,7 +20,7 @@ public class ProduitMapper {
         entity.setCode(dto.getCode());
         entity.setPrixU(dto.getPrixU());
         entity.setQte(dto.getQte());
-        entity.setMontantS(dto.getMontantS());
+        entity.setMontantS(dto.getPrixU() * dto.getQte() );
         Categorie categorie = new Categorie();
         categorie.setId(dto.getCategorieId());
         entity.setCategorie(categorie);
@@ -49,6 +50,11 @@ public class ProduitMapper {
         return lproduitDto.stream().filter(Objects::nonNull).map(this::toEntity).collect(Collectors.toList());
     }
 
+
+    public List<ProduitDTO> toDto(List<Produit> lproduit){
+
+        return lproduit.stream().filter(Objects::nonNull).map(this::toDto).collect(Collectors.toList());
+    }
 
 
 

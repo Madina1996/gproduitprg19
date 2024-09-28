@@ -86,4 +86,8 @@ public class Produit {
     public void setMouvementProduits(List<MouvementProduit> mouvementProduits) {
         this.mouvementProduits = mouvementProduits;
     }
+
+    public void calculeMontantStock(){
+        this.montantS = this.prixU * this.qte;
+    }
 }

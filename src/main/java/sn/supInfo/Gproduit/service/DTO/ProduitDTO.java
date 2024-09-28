@@ -1,14 +1,12 @@
 package sn.supInfo.Gproduit.service.DTO;
 
-import jakarta.validation.constraints.NotEmpty;
-import jakarta.validation.constraints.Size;
+
 
 public class ProduitDTO {
 
     private long id;
 
-    @NotEmpty(message = "Le nom ne doit pas être vide")
-    @Size(min = 2, max = 30, message = "Le nom doit contenir entre 2 et 30 caractères")
+
     private String code;
 
     private String designation;

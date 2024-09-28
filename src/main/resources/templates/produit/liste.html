@@ -37,11 +37,11 @@
                                 <td th:text="${prod.designation}"> </td>
                                 <td th:text="${prod.prixU}"> </td>
                                 <td th:text="${prod.qte}"> </td>
-                                <td th:text="${prod.montonS}"> </td>
+                                <td th:text="${prod.montantS}"> </td>
                                 <td th:text="${prod.categorie.designation}"> </td>
                                 <td>
-                                    <a class="btn btn-primary" th:href="@{'/categorie/edit/'+${prod.id}}">edit</a>
-                                    <a class="btn btn-danger" th:href="@{'/categorie/supprimer/'+${prod.id}}">supprimer</a>
+                                    <a class="btn btn-primary" th:href="@{'/produit/edit/'+${prod.id}}">edit</a>
+                                    <a class="btn btn-danger" th:href="@{'/produit/supprimer/'+${prod.id}}">supprimer</a>
                                 </td>
 
                             </tr>
