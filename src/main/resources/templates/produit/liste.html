@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}" >
+
+<div  layout:fragment="content">
+
+
+
+
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">
+                    <a th:href="@{/produit/ajout}" class="btn btn-primary">Ajouter</a>
+                </div>
+                <div class="card-body">
+
+                    <div class="table-responsive">
+                        <table id="zero_config" class="table table-striped table-bordered no-wrap">
+                            <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>code</th>
+                                <th>designation</th>
+                                <th>prix unitaire</th>
+                                <th>quantité</th>
+                                <th>M Stock</th>
+                                <th>categorie</th>
+                                <th>action</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr th:each="prod : ${ produits}">
+                                <td th:text="${prod.id}"> </td>
+                                <td th:text="${prod.code}"> </td>
+                                <td th:text="${prod.designation}"> </td>
+                                <td th:text="${prod.prixU}"> </td>
+                                <td th:text="${prod.qte}"> </td>
+                                <td th:text="${prod.montonS}"> </td>
+                                <td th:text="${prod.categorie.designation}"> </td>
+                                <td>
+                                    <a class="btn btn-primary" th:href="@{'/categorie/edit/'+${prod.id}}">edit</a>
+                                    <a class="btn btn-danger" th:href="@{'/categorie/supprimer/'+${prod.id}}">supprimer</a>
+                                </td>
+
+                            </tr>
+
+                            </tbody>
+                            <tfoot>
+
+                            </tfoot>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+</html>
