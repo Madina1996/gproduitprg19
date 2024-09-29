@@ -1,10 +1,59 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}" >
 
-</body>
+<div  layout:fragment="content">
+
+
+
+    <div class="card" style="width: 48rem;">
+        <div class="card-header">
+            Ajout de mouvement
+
+        </div>
+        <div class="card-body">
+
+            <form  th:action="@{/mouvementproduit/save}" th:method="POST" th:object="${mouvementproduitDto}">
+
+                <div class="mb-3">
+                    <label class="form-label">Produit</label>
+                    <select class="form-control" aria-label="Default select example" th:field="*{produitId}">
+                        <option th:value="${0}" selected>choisir...</option>
+                        <option th:each="prod : ${produits}" th:value="${prod.id}"  ><span th:text="${prod.designation}"></span></option>
+
+                    </select>
+                </div>
+
+
+                <div class="mb-3">
+                    <label class="form-label">Date</label>
+                    <input type="date" class="form-control"  th:field="*{dateMouv}"   required    >
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Type</label>
+                    <select class="form-control" aria-label="Default select example" th:field="*{typeMouv}">
+                        <option th:value="${0}" selected>choisir...</option>
+                        <option   th:value="${'ENTRER'}"  >ENTRER </option>
+                        <option   th:value="${'SORTIE'}"  > SORTIE</option>
+
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Qnantité</label>
+                    <input type="text" class="form-control"  th:field="*{qte}"   required    >
+                </div>
+
+
+
+
+
+                <button type="submit" class="btn btn-primary">terminer</button>
+                <button type="reset" class="btn btn-primary">annuler</button>
+            </form>
+        </div>
+
+    </div>
+
+</div>
 </html>

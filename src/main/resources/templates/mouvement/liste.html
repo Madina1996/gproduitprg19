@@ -1,10 +1,62 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}" >
 
-</body>
+<div  layout:fragment="content">
+
+
+
+
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">
+                    <a th:href="@{/mouvementproduit/ajout}" class="btn btn-primary">Ajouter</a>
+                </div>
+                <div class="card-body">
+
+                    <div class="table-responsive">
+                        <table id="zero_config" class="table table-striped table-bordered no-wrap">
+                            <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Designation</th>
+                                <th>Date</th>
+                                <th>Type</th>
+                                <th>quantité</th>
+                                <th>Montant</th>
+
+
+                                <th>action</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr th:each="mouv : ${ mouvementproduits}">
+                                <td th:text="${mouv.id}"> </td>
+                                <td th:text="${mouv.produit.designation}"> </td>
+                                <td th:text="${mouv.dateMouv}"> </td>
+                                <td th:text="${mouv.typeMouv}"> </td>
+                                <td th:text="${mouv.qte}"> </td>
+                                <td th:text="${mouv.qte * mouv.produit.prixU }"> </td>
+                                <td>
+                                    <a class="btn btn-primary" th:href="@{'/mouvementproduits/edit/'+${mouv.id}}">edit</a>
+                                    <a class="btn btn-danger" th:href="@{'/mouvementproduits/supprimer/'+${mouv.id}}">supprimer</a>
+                                </td>
+
+                            </tr>
+
+                            </tbody>
+                            <tfoot>
+
+                            </tfoot>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
 </html>

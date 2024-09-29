@@ -8,7 +8,7 @@ public class MouvementProduitDTO {
 
 
     private long id;
-    private Date dateMouv;
+    private String dateMouv;
     private TypeMouv typeMouv;
     private double qte;
     private long produitId;
@@ -22,11 +22,11 @@ public class MouvementProduitDTO {
         this.id = id;
     }
 
-    public Date getDateMouv() {
+    public String getDateMouv() {
         return dateMouv;
     }
 
-    public void setDateMouv(Date dateMouv) {
+    public void setDateMouv(String dateMouv) {
         this.dateMouv = dateMouv;
     }
 

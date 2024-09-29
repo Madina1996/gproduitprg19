@@ -1,5 +1,6 @@
 package sn.supInfo.Gproduit.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import org.springframework.lang.NonNull;
 
@@ -14,7 +15,9 @@ public class Categorie {
     private long id;
     @Column(name = "design")
     private  String designation;
+
     @OneToMany(mappedBy = "categorie")
+    @JsonIgnore
     private List<Produit> produits = new ArrayList<>();
 
 

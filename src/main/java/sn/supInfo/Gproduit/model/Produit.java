@@ -1,5 +1,6 @@
 package sn.supInfo.Gproduit.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.util.ArrayList;
@@ -20,6 +21,7 @@ public class Produit {
     private Categorie categorie;
 
     @OneToMany(mappedBy = "produit")
+    @JsonIgnore
     private List<MouvementProduit> mouvementProduits = new ArrayList<>();
 
 

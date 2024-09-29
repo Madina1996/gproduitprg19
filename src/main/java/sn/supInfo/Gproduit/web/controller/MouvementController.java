@@ -29,7 +29,7 @@ public class MouvementController {
     @RequestMapping("/mouvementproduit/ajout")
     public String addProdut(Model model){
         model.addAttribute("mouvementproduitDto",new MouvementProduitDTO());
-        model.addAttribute("produis",produitRepository.findAll());
+        model.addAttribute("produits",produitRepository.findAll());
 
         return "mouvement/add";
     }
@@ -49,7 +49,7 @@ public class MouvementController {
     @RequestMapping("/mouvementproduit/liste")
     public String listProdut(Model model){
 
-        model.addAttribute("mouvementproduits", produitRepository.findAll());
+        model.addAttribute("mouvementproduits", mouvementProduitRepository.findAll());
         return "mouvement/liste";
     }
     @PostMapping("mouvementproduit/save")
@@ -64,7 +64,7 @@ public class MouvementController {
     @PutMapping("mouvementproduit/save")
     public  String updateProduit(@ModelAttribute MouvementProduitDTO mouvementProduitDTO, BindingResult bindingResult, Model model){
 
-        mouvementProduitService.update(mouvementProduitDTO);
+        mouvementProduitService.save(mouvementProduitDTO);
 
         return "redirect:/mouvementproduit/liste";
 

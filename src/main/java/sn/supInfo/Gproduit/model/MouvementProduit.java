@@ -10,10 +10,10 @@ public class MouvementProduit {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    private Date dateMouv;
+    private String dateMouv;
     private TypeMouv typeMouv;
     private double qte;
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     private  Produit produit;
 
 
@@ -25,11 +25,11 @@ public class MouvementProduit {
         this.id = id;
     }
 
-    public Date getDateMouv() {
+    public String getDateMouv() {
         return dateMouv;
     }
 
-    public void setDateMouv(Date dateMouv) {
+    public void setDateMouv(String dateMouv) {
         this.dateMouv = dateMouv;
     }
 
